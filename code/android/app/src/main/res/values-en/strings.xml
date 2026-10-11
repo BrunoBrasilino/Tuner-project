@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tuner</string>
+    <string name="settings">Settings</string>
+    <string name="back">Back</string>
+    <string name="target_frequency">Target: %1$s</string>
+    <string name="waiting_note">Play a note</string>
+    <string name="microphone_permission">Allow microphone access</string>
+    <string name="microphone_settings">Open app permissions to allow the microphone</string>
+    <string name="microphone_error">Microphone error</string>
+    <string name="retry">Try again</string>
+    <string name="allow_microphone">Allow microphone</string>
+    <string name="sensitivity">Sensitivity</string>
+    <string name="automatic">Auto</string>
+    <string name="manual">Manual</string>
+    <string name="switch_to_auto">Switch to Auto</string>
+    <string name="switch_to_manual">Switch to Manual</string>
+    <string name="manual_level">Manual threshold in dBFS</string>
+    <string name="threshold_label">Detection threshold</string>
+    <string name="threshold_range_error">Use a value between −80 and −20 dBFS.</string>
+    <string name="sensitivity_explanation">The threshold filters quiet sounds; it does not change microphone gain.</string>
+    <string name="reference_title">A4 reference</string>
+    <string name="reference_hint">Swipe vertically or tap the number to enter 400–480 Hz.</string>
+    <string name="reference_edit">Enter A4 reference</string>
+    <string name="reference_selected_description">Current reference: %1$d Hz. Tap to type.</string>
+    <string name="reference_option_description">Select %1$d Hz reference.</string>
+    <string name="apply">Apply</string>
+    <string name="cancel">Cancel</string>
+    <string name="previous_frequency">Previous frequency</string>
+    <string name="next_frequency">Next frequency</string>
+    <string name="save_preset">Save preset</string>
+    <string name="saved_presets">Saved presets (%1$d/3)</string>
+    <string name="preset_limit">Remove a preset to save another.</string>
+    <string name="preset_already_saved">This value is already saved.</string>
+    <string name="remove_preset">Remove %1$d Hz preset</string>
+    <string name="language">Language</string>
+    <string name="language_hint">The selected language is applied to the app.</string>
+    <string name="note_tuned">in tune</string>
+    <string name="note_flat">flat</string>
+    <string name="note_sharp">sharp</string>
+    <string name="spoken_reading">%1$s, %2$s, %3$d cents</string>
+    <string name="meter_description">%1$d cents deviation</string>
+    <string name="input_level">Input level: %1$s dBFS</string>
+</resources>

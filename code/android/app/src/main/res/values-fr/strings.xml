@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Accordeur</string>
+    <string name="settings">Réglages</string>
+    <string name="back">Retour</string>
+    <string name="target_frequency">Cible : %1$s</string>
+    <string name="waiting_note">Jouez une note</string>
+    <string name="microphone_permission">Autorisez l’accès au microphone</string>
+    <string name="microphone_settings">Ouvrez les autorisations de l’application pour le microphone</string>
+    <string name="microphone_error">Erreur du microphone</string>
+    <string name="retry">Réessayer</string>
+    <string name="allow_microphone">Autoriser le microphone</string>
+    <string name="sensitivity">Sensibilité</string>
+    <string name="automatic">Auto</string>
+    <string name="manual">Manuel</string>
+    <string name="switch_to_auto">Passer en Auto</string>
+    <string name="switch_to_manual">Passer en mode manuel</string>
+    <string name="manual_level">Seuil manuel en dBFS</string>
+    <string name="threshold_label">Seuil de détection</string>
+    <string name="threshold_range_error">Saisissez une valeur entre −80 et −20 dBFS.</string>
+    <string name="sensitivity_explanation">Le seuil filtre les sons faibles ; il ne modifie pas le gain du microphone.</string>
+    <string name="reference_title">Référence A4</string>
+    <string name="reference_hint">Faites défiler verticalement ou touchez le nombre pour saisir 400–480 Hz.</string>
+    <string name="reference_edit">Saisir la référence A4</string>
+    <string name="reference_selected_description">Référence actuelle : %1$d Hz. Touchez pour saisir.</string>
+    <string name="reference_option_description">Choisir la référence %1$d Hz.</string>
+    <string name="apply">Appliquer</string>
+    <string name="cancel">Annuler</string>
+    <string name="previous_frequency">Fréquence précédente</string>
+    <string name="next_frequency">Fréquence suivante</string>
+    <string name="save_preset">Enregistrer le préréglage</string>
+    <string name="saved_presets">Préréglages enregistrés (%1$d/3)</string>
+    <string name="preset_limit">Supprimez un préréglage pour en enregistrer un autre.</string>
+    <string name="preset_already_saved">Cette valeur est déjà enregistrée.</string>
+    <string name="remove_preset">Supprimer le préréglage %1$d Hz</string>
+    <string name="language">Langue</string>
+    <string name="language_hint">La langue choisie s’applique à l’application.</string>
+    <string name="note_tuned">accordée</string>
+    <string name="note_flat">trop grave</string>
+    <string name="note_sharp">trop aiguë</string>
+    <string name="spoken_reading">%1$s, %2$s, %3$d cents</string>
+    <string name="meter_description">Écart de %1$d cents</string>
+    <string name="input_level">Niveau capté : %1$s dBFS</string>
+</resources>

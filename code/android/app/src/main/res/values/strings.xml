@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Afinador</string>
+    <string name="settings">Ajustes</string>
+    <string name="back">Voltar</string>
+    <string name="target_frequency">Alvo: %1$s</string>
+    <string name="waiting_note">Toque uma nota</string>
+    <string name="microphone_permission">Permita o acesso ao microfone</string>
+    <string name="microphone_settings">Abra as permissões do app para liberar o microfone</string>
+    <string name="microphone_error">Falha no microfone</string>
+    <string name="retry">Tentar novamente</string>
+    <string name="allow_microphone">Permitir microfone</string>
+    <string name="sensitivity">Sensibilidade</string>
+    <string name="automatic">Auto</string>
+    <string name="manual">Manual</string>
+    <string name="switch_to_auto">Alternar para Auto</string>
+    <string name="switch_to_manual">Alternar para Manual</string>
+    <string name="manual_level">Limite manual em dBFS</string>
+    <string name="threshold_label">Limite de detecção</string>
+    <string name="threshold_range_error">Use um valor entre −80 e −20 dBFS.</string>
+    <string name="sensitivity_explanation">O limite filtra sons fracos; não altera o ganho do microfone.</string>
+    <string name="reference_title">Referência A4</string>
+    <string name="reference_hint">Deslize na vertical ou toque no número para digitar (400–480 Hz).</string>
+    <string name="reference_edit">Digitar referência A4</string>
+    <string name="reference_selected_description">Referência atual: %1$d Hz. Toque para digitar.</string>
+    <string name="reference_option_description">Selecionar referência de %1$d Hz.</string>
+    <string name="apply">Aplicar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="previous_frequency">Frequência anterior</string>
+    <string name="next_frequency">Próxima frequência</string>
+    <string name="save_preset">Salvar preset</string>
+    <string name="saved_presets">Presets salvos (%1$d/3)</string>
+    <string name="preset_limit">Remova um preset para salvar outro.</string>
+    <string name="preset_already_saved">Este valor já está salvo.</string>
+    <string name="remove_preset">Remover preset %1$d Hz</string>
+    <string name="language">Idioma</string>
+    <string name="language_hint">O idioma escolhido é aplicado ao aplicativo.</string>
+    <string name="note_tuned">afinada</string>
+    <string name="note_flat">grave</string>
+    <string name="note_sharp">aguda</string>
+    <string name="spoken_reading">%1$s, %2$s, %3$d cents</string>
+    <string name="meter_description">Desvio de %1$d cents</string>
+    <string name="input_level">Sinal captado: %1$s dBFS</string>
+</resources>
