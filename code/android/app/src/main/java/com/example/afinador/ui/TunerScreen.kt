@@ -61,6 +61,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
@@ -68,6 +69,7 @@ import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
@@ -101,6 +103,8 @@ import kotlinx.coroutines.launch
 
 private val Amber = Color(0xFFFFAF00)
 private val Card = Color(0xFF191E23)
+private val MainContentHorizontalPadding = 18.dp
+private val CentsScaleEdgeInset = 3.dp
 
 enum class TunerStatus { IDLE, LISTENING, PERMISSION_DENIED, ERROR }
 
@@ -197,7 +201,7 @@ private fun MainTunerScreen(
         val compact = safeHeight < 700.dp || LocalDensity.current.fontScale >= 1.3f
         Column(
             modifier = Modifier.fillMaxSize().clipToBounds().verticalScroll(rememberScrollState())
-                .padding(horizontal = 18.dp),
+                .padding(horizontal = MainContentHorizontalPadding),
         ) {
             Column(
                 modifier = Modifier.fillMaxWidth().heightIn(min = safeHeight).imePadding(),
@@ -345,7 +349,7 @@ private fun CentsMeter(cents: Double?) {
         else -> Amber
     }
     val tickColor = MaterialTheme.colorScheme.onSurfaceVariant
-    Column(Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 12.dp)) {
+    Column(Modifier.fillMaxWidth().padding(vertical = 12.dp)) {
         Text(
             text = cents?.let { "${if (it >= 0) "+" else ""}${it.roundToInt()} cents" } ?: "— cents",
             modifier = Modifier.fillMaxWidth(),
@@ -357,29 +361,54 @@ private fun CentsMeter(cents: Double?) {
         Spacer(Modifier.height(12.dp))
         Canvas(Modifier.fillMaxWidth().height(68.dp)) {
             val centerY = size.height / 2
-            val inset = size.width / 10f
-            val scaleWidth = size.width - 2 * inset
+            val inset = CentsScaleEdgeInset.toPx().coerceAtMost(size.width / 2)
+            val centSpacing = (size.width - 2 * inset) / 100f
             drawLine(tickColor.copy(alpha = 0.32f), Offset(inset, centerY), Offset(size.width - inset, centerY), 1.dp.toPx())
-            for (step in -50..50 step 5) {
-                val x = inset + (step + 50) / 100f * scaleWidth
-                val major = step % 25 == 0
-                val length = if (major) 21.dp.toPx() else 10.dp.toPx()
+            for (step in -50..50) {
+                val x = inset + (step + 50) * centSpacing
+                val mainMark = step % 25 == 0
+                val fiveCentMark = step % 5 == 0
+                val length = when {
+                    mainMark -> 24.dp.toPx()
+                    fiveCentMark -> 11.dp.toPx()
+                    else -> 4.dp.toPx()
+                }
                 drawLine(
-                    color = if (step == 0) primary else tickColor.copy(alpha = if (major) 0.85f else 0.45f),
+                    color = when {
+                        step == 0 -> primary
+                        mainMark -> tickColor.copy(alpha = 0.9f)
+                        fiveCentMark -> tickColor.copy(alpha = 0.68f)
+                        else -> tickColor.copy(alpha = 0.38f)
+                    },
                     start = Offset(x, centerY - length),
                     end = Offset(x, centerY + length),
-                    strokeWidth = if (major) 2.dp.toPx() else 1.dp.toPx(),
+                    strokeWidth = if (mainMark) 2.dp.toPx() else 1.dp.toPx(),
                 )
             }
             if (cents != null) {
-                val x = inset + ((cents.coerceIn(-50.0, 50.0) + 50.0) / 100.0 * scaleWidth).toFloat()
+                val x = inset + ((cents.coerceIn(-50.0, 50.0) + 50.0) * centSpacing).toFloat()
                 drawLine(accent, Offset(x, 0f), Offset(x, size.height), 4.dp.toPx(), StrokeCap.Round)
             }
         }
-        Row(Modifier.fillMaxWidth()) {
-            listOf("−50", "−25", "0", "+25", "+50").forEach { label ->
-                Box(Modifier.weight(1f), contentAlignment = Alignment.Center) {
+        Layout(
+            content = {
+                listOf("−50", "−25", "0", "+25", "+50").forEach { label ->
                     Text(label, fontSize = 12.sp, color = tickColor)
+                }
+            },
+            modifier = Modifier.fillMaxWidth(),
+        ) { measurables, constraints ->
+            val labels = measurables.map { it.measure(constraints.copy(minWidth = 0, minHeight = 0)) }
+            val width = constraints.maxWidth
+            val inset = CentsScaleEdgeInset.roundToPx().coerceAtMost(width / 2)
+            val scaleWidth = width - 2 * inset
+            val labelOverhang = MainContentHorizontalPadding.roundToPx()
+            layout(width, labels.maxOfOrNull { it.height } ?: 0) {
+                labels.forEachIndexed { index, label ->
+                    val markX = inset + index * scaleWidth / 4f
+                    val left = (markX - label.width / 2f).roundToInt()
+                        .coerceIn(-labelOverhang, (width + labelOverhang - label.width).coerceAtLeast(-labelOverhang))
+                    label.placeRelative(left, 0)
                 }
             }
         }
@@ -548,6 +577,7 @@ private fun SensitivityModeSelector(
                     true
                 }
             }
+            .clip(capsuleShape)
             .clickable { onAutomaticChange(!automatic) },
     ) {
         Box(Modifier.matchParentSize().background(Card, capsuleShape))

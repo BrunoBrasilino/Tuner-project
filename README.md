@@ -18,4 +18,4 @@ Aplicativo Android de afinador cromático para instrumentos musicais, desenvolvi
 
 O projeto requer JDK 17 e Android SDK 35. Também é possível compilar com o wrapper do Gradle na pasta `code/android`. APKs de desenvolvimento são gerados localmente e não fazem parte do repositório.
 
-Mais detalhes estão em [docs/README.md](docs/README.md). O [backlog](docs/BACKLOG.md) registra as limitações e próximas validações.
+Mais detalhes estão em [docs/README.md](docs/README.md). As [notas da versão 1.0.0](docs/RELEASE_V1.0.0.md) resumem a entrega; o [backlog](docs/BACKLOG.md) registra as limitações e próximas validações.

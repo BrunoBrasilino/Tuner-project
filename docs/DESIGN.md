@@ -39,3 +39,9 @@ A versão aprovada pelo usuário é [afinador-logo-approved.png](../outputs/desi
 Aguardando nota estável, nota detectada, última nota atenuada por até cinco segundos, permissão negada e erro de captação. Uma nova nota válida substitui imediatamente a anterior. Para permissão ou erro, a ação de recuperação aparece abaixo da escala.
 
 Mudanças estáveis de nota e direção de afinação usam um anúncio discreto para TalkBack, após breve atraso, para evitar fala contínua a cada bloco de áudio. Esse comportamento ainda precisa de teste com TalkBack ativo.
+
+## Régua de cents e feedback do switch na versão 1.0.0
+
+A [referência da régua expandida](../context/design/cents-scale-expanded-1cent-reference.png) foi implementada no Compose. A régua ocupa a largura disponível com margens seguras, mantém −50 a +50 cents e os cinco rótulos principais. Há marcas discretas a cada 1 cent, marcas de 5 cents mais visíveis e referências dominantes em −50, −25, 0, +25 e +50; o zero permanece ciano. A posição do ponteiro usa o valor contínuo de cents e a largura real do componente. As [capturas de validação](../outputs/previews/cents-scale-expanded/) incluem leituras próximas das extremidades e do zero em telas compacta e grande.
+
+O efeito de pressão do switch Auto/Manual foi recortado no formato da cápsula inteira. As [capturas de toque e foco](../outputs/previews/switch-ripple/) registram os estados normal, pressionado e após toques à esquerda, no centro e à direita. O destaque retangular verde de foco de acessibilidade é desenhado pelo Android; o efeito de pressão do app permanece arredondado. Um serviço temporário de teste confirmou um único nó acessível com estado Auto ou Manual; o serviço não integra o app.

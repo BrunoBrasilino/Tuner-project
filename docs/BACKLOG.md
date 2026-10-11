@@ -1,6 +1,6 @@
 # Afinador Android — visão e backlog inicial
 
-Status: protótipo Android V0.4 com revisão de interface implementada em 11 de outubro de 2026. A validação de áudio e legibilidade no Samsung S24 Ultra ainda está pendente.
+Status: versão 1.0.0 do afinador Android organizada em 11 de outubro de 2026. A interface foi testada no emulador e pelo usuário no aparelho; a medição sistemática da precisão de áudio no Samsung S24 Ultra ainda está pendente.
 
 ## Andamento da fase 1
 
