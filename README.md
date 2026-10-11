@@ -1,21 +1,21 @@
-# Afinador
+# Tuner
 
-Aplicativo Android de afinador cromático para instrumentos musicais, desenvolvido em Kotlin e Jetpack Compose. Detecta uma nota por vez pelo microfone e mostra frequência, nota, oitava e desvio em cents.
+An Android chromatic tuner for musical instruments, built with Kotlin and Jetpack Compose. It detects one note at a time through the microphone and displays its frequency, note, octave, and deviation in cents.
 
-## Recursos
+## Features
 
-- Referência A4 ajustável de 400 a 480 Hz, com até três valores salvos.
-- Sensibilidade automática ou limiar manual em dBFS, com indicação do nível captado.
-- Última leitura exibida de forma atenuada por até cinco segundos.
-- Interface em português, inglês e francês.
-- Processamento local: o áudio não é salvo nem enviado a um servidor.
+- Adjustable A4 reference from 400 to 480 Hz, with up to three saved presets.
+- Automatic sensitivity or a manual dBFS threshold, with an input-level indicator.
+- The last valid reading remains visible, dimmed, for up to five seconds.
+- Portuguese, English, and French interfaces.
+- Local audio processing: recordings are neither saved nor sent to a server.
 
-## Executar
+## Run the app
 
-1. Abra a pasta [`code/android`](code/android) no Android Studio.
-2. Aguarde a sincronização do Gradle e execute o aplicativo em um dispositivo ou emulador Android.
-3. Conceda permissão de microfone ao abrir o app.
+1. Open [`code/android`](code/android) in Android Studio.
+2. Wait for Gradle Sync, then run the app on an Android device or emulator.
+3. Grant microphone permission when the app opens.
 
-O projeto requer JDK 17 e Android SDK 35. Também é possível compilar com o wrapper do Gradle na pasta `code/android`. APKs de desenvolvimento são gerados localmente e não fazem parte do repositório.
+The project requires JDK 17 and Android SDK 35. You can also build it with the Gradle wrapper in `code/android`. Development APKs are generated locally and are not committed to this repository.
 
-Mais detalhes estão em [docs/README.md](docs/README.md). As [notas da versão 1.0.0](docs/RELEASE_V1.0.0.md) resumem a entrega; o [backlog](docs/BACKLOG.md) registra as limitações e próximas validações.
+See [docs/README.md](docs/README.md) for more details, the [1.0.0 release notes](docs/RELEASE_V1.0.0.md) for this version, and the [backlog](docs/BACKLOG.md) for known limits and planned validation.
